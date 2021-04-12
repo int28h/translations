@@ -4,4 +4,6 @@
 ### [Процессы и потоки](src/java-tutorials/concurrency/ProcessesandThreads.md)  
 ### [Экземпляры Thread](src/java-tutorials/concurrency/ThreadObjects.md)  
 #### [Создание и запуск потока](src/java-tutorials/concurrency/DefiningandStartingaThread.md)  
-  
+#### [Приостановка потока с использованием sleep(...)](src/java-tutorials/concurrency/PausingExecutionwithSleep.md)  
+#### [Прерывания](src/java-tutorials/concurrency/Interrupts.md)  
+   
