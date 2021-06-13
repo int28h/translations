@@ -22,9 +22,9 @@
 		System.out.println(importantInfo[i]);
 	}
   
-Many methods that throw InterruptedException, such as sleep, are designed to cancel their current operation and return immediately when an interrupt is received.  
+Многие методы, выбрасывающие InterruptedException — как, например, sleep(...) — при получении прерывания отменяют свою текущую операцию и немедленнно осуществляют возврат.  
   
-What if a thread goes a long time without invoking a method that throws InterruptedException? Then it must periodically invoke Thread.interrupted, which returns true if an interrupt has been received. For example:  
+Что если поток долгое время не вызывает метод, генерирующий InterruptedException? Тогда он должен периодически вызывать Thread.interrupted(), который вернет true, если было получено прерывание. Например:  
   
 	for (int i = 0; i < inputs.length; i++) {
 		heavyCrunch(inputs[i]);
@@ -34,17 +34,17 @@ What if a thread goes a long time without invoking a method that throws Interrup
 		}
 	}
   
-In this simple example, the code simply tests for the interrupt and exits the thread if one has been received. In more complex applications, it might make more sense to throw an InterruptedException:  
+В этом простом примере код проверяет наличие прерывания и, если оно получено, выполнение метода завершается. В более сложных приложениях в таком случае рациональнее будет выбросить InterruptedException:  
   
 	if (Thread.interrupted()) {
 		throw new InterruptedException();
 	}
   
-This allows interrupt handling code to be centralized in a catch clause.  
+Это позволяет обернуть код для обработки прерывания в catch(...){...}.   
   
-## The Interrupt Status Flag  
+## Флаг статуса прерывания  
   
-The interrupt mechanism is implemented using an internal flag known as the interrupt status. Invoking Thread.interrupt sets this flag. When a thread checks for an interrupt by invoking the static method Thread.interrupted, interrupt status is cleared. The non-static isInterrupted method, which is used by one thread to query the interrupt status of another, does not change the interrupt status flag.  
+Механизм прерывания реализуется с использование внутреннего флага, известного как статус прерывания (the interrupt status). Вызов Thread.interrupt() устанавливает этот флаг. Когда поток проверяет наличие прерывания путём вызова *статического* метода *Thread.interrupted()*, статус прерывания *очищается*. *Нестатический* метод *isInterrupted()* используется одним потоком для проверки состояния другого потока и *не изменяет* статус прерывания.  
   
-By convention, any method that exits by throwing an InterruptedException clears interrupt status when it does so. However, it's always possible that interrupt status will immediately be set again, by another thread invoking interrupt.  
+По соглашению, любой метод, который завершается выбросом InterruptedException, при этом очищает состояние прерывания. Однако всегда возможно, что статус прерывания будет незамедлительно снова установлен другим потоком, вызывающим прерывание.  
   
