@@ -7,4 +7,4 @@
 #### [Приостановка потока с использованием sleep(...)](src/java-tutorials/concurrency/PausingExecutionwithSleep.md)  
 #### [Прерывания](src/java-tutorials/concurrency/Interrupts.md)  
 #### [Join(...)](src/java-tutorials/concurrency/Joins.md)  
-  
+#### [Пример: SimpleThreads](src/java-tutorials/concurrency/SimpleThreads.md)  
