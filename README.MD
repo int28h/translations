@@ -6,4 +6,5 @@
 #### [Создание и запуск потока](src/java-tutorials/concurrency/DefiningandStartingaThread.md)  
 #### [Приостановка потока с использованием sleep(...)](src/java-tutorials/concurrency/PausingExecutionwithSleep.md)  
 #### [Прерывания](src/java-tutorials/concurrency/Interrupts.md)  
-   
+#### [Join(...)](src/java-tutorials/concurrency/Joins.md)  
+  
