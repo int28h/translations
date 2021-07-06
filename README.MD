@@ -10,3 +10,5 @@
 ###### [Пример: SimpleThreads](src/java-tutorials/concurrency/SimpleThreads.md)  
 
 #### [Синхронизация](src/java-tutorials/concurrency/Synchronization.md)  
+###### [Интерференция потоков](src/java-tutorials/concurrency/ThreadInterference.md)  
+  
